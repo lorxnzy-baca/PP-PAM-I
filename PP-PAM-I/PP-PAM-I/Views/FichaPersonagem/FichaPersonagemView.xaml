@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PP_PAM_I.Views.FichaPersonagem.FichaPersonagemView"
+             Title="Ficha de Personagem">
+
+    <Grid Padding="30" BackgroundColor="#EFEFEF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="Ficha de Personagem" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20,0,20" TextColor="#3E3E3E" Grid.Row="0"/>
+
+        <StackLayout Spacing="20" Grid.Row="1">
+            <Entry Placeholder="Nome" Text="{Binding Nome}" FontSize="18"/>
+            <Entry Placeholder="Classe" Text="{Binding PersonagemClasse}" FontSize="18"/>
+            <Entry Placeholder="Nível" Keyboard="Numeric" Text="{Binding Nivel}" FontSize="18"/>
+            <Entry Placeholder="Raça" Text="{Binding Raca}" FontSize="18"/>
+            <Button Text="Adicionar" Command="{Binding AdicionarPersonagemCommand}" BackgroundColor="#2196F3" TextColor="White" FontSize="20" CornerRadius="12" Padding="15" HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <CollectionView ItemsSource="{Binding Personagens}" Grid.Row="2" Margin="0,30,0,0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="20" Margin="0,10" BackgroundColor="#FFFFFF" CornerRadius="15" HasShadow="True">
+                        <StackLayout Spacing="8">
+                            <Label Text="{Binding Nome}" FontSize="22" FontAttributes="Bold" TextColor="#2E2E2E"/>
+                            <Label Text="Classe: {Binding Classe}" FontSize="18" TextColor="#5E5E5E"/>
+                            <Label Text="Nível: {Binding Nivel}" FontSize="18" TextColor="#5E5E5E"/>
+                            <Label Text="Raça: {Binding Raca}" FontSize="18" TextColor="#5E5E5E"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

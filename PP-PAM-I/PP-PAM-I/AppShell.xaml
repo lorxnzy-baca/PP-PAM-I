@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="PP_PAM_I.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewsDiceRoller = "clr-namespace:PP_PAM_I.Views.DiceRoller"
+    xmlns:viewsFichaPersonagem = "clr-namespace:PP_PAM_I.Views.FichaPersonagem"
+    xmlns:viewsGrimorio = "clr-namespace:PP_PAM_I.Views.Grimório"
+    xmlns:local="clr-namespace:PP_PAM_I"
+    Title="PP_PAM_I">
+
+    <Shell.FlyoutHeader>
+        <Grid HeightRequest="100" BackgroundColor="DarkSlateBlue"/>
+    </Shell.FlyoutHeader>
+
+    <Shell.NavBarIsVisible>False</Shell.NavBarIsVisible>
+
+    <TabBar>
+        <Tab Title="Rolador de Dados" Icon="dice_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate viewsDiceRoller:DiceRollerView}" />
+        </Tab>
+        <Tab Title="Ficha de Personagem" Icon="character_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate viewsFichaPersonagem:FichaPersonagemView}" />
+        </Tab>
+        <Tab Title="Grimório" Icon="spell_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate viewsGrimorio:SpellView}" />
+        </Tab>
+    </TabBar>
+
+</Shell>

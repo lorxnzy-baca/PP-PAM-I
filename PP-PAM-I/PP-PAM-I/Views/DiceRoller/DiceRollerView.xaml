@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PP_PAM_I.Views.DiceRoller.DiceRollerView"
+             Title="Rolador de Dados">
+
+    <Grid Padding="30" BackgroundColor="#F8F8F8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="Rolador de Dados" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20,0,20" TextColor="#4A4A4A" Grid.Row="0"/>
+
+        <StackLayout Spacing="25" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1">
+            <Image Source="dice_default.png" WidthRequest="150" HeightRequest="150"/>
+            <Label x:Name="valorDado" Text="0" FontSize="56" TextColor="#FF5722" FontAttributes="Bold"/>
+
+            <Picker x:Name="ladoDado" Title="Escolha os lados do dado" HorizontalOptions="FillAndExpand" FontSize="18"/>
+            <Picker x:Name="quantidadeDado" Title="Quantidade de dados" HorizontalOptions="FillAndExpand" FontSize="18"/>
+        </StackLayout>
+
+        <Button Text="RODAR DADOS" TextColor="White" BackgroundColor="#FF5722" FontSize="22" CornerRadius="12" Padding="20" Grid.Row="2" VerticalOptions="End" Clicked="OnDiceRoll"/>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PP_PAM_I.Views.Grimório.SpellView"
+             Title="Grimório">
+
+    <Grid Padding="30" BackgroundColor="#FAFAFA">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="Filtro de Magias" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20,0,20" TextColor="#3B3B3B" Grid.Row="0"/>
+
+        <StackLayout Spacing="15" Grid.Row="1">
+            <Picker Title="Selecione o Nível" ItemsSource="{Binding Levels}" SelectedItem="{Binding SelectedLevel}" FontSize="18"/>
+            <Picker Title="Escolha a Escola" ItemsSource="{Binding Schools}" SelectedItem="{Binding SelectedSchool}" FontSize="18"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20" Margin="0,20,0,20">
+                <Button Text="Filtrar" Command="{Binding FilterCommand}" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="12" FontSize="18"/>
+                <Button Text="Limpar" Command="{Binding ClearFilterCommand}" BackgroundColor="#F44336" TextColor="White" CornerRadius="12" FontSize="18"/>
+            </StackLayout>
+
+            <CollectionView ItemsSource="{Binding Spells}" Margin="0,20,0,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="20" BackgroundColor="#FFFFFF" CornerRadius="15" HasShadow="True">
+                            <StackLayout Spacing="8">
+                                <Label Text="{Binding Name}" FontSize="22" FontAttributes="Bold" TextColor="#2D2D2D"/>
+                                <Label Text="Nível: {Binding Level}" FontSize="18" TextColor="#646464"/>
+                                <Label Text="Escola: {Binding School}" FontSize="18" TextColor="#646464"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </Grid>
+</ContentPage>
